@@ -1,4 +1,4 @@
-package blog.yun.controller;
+package blog.main.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
