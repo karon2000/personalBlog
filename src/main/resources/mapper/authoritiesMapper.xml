@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="authoritiesMapper">
+
+	<select id="selectAuthorityByUserName" parameterType="String"
+		resultType="blog.vo.authorities.Authorities">
+		select username, role
+		from AUTHORITIES
+		where
+		username=#{_parameter}
+
+	</select>
+	
+	
+	<insert id="insertAuthority" parameterType="blog.vo.authorities.Authorities">
+		insert into AUTHORITIES(username, role)
+		values(#{username}, #{role})
+	</insert>
+
+</mapper>

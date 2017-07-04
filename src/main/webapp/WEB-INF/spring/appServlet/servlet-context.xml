@@ -19,10 +19,11 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2" />
 	</beans:bean>
 	
-	<context:component-scan base-package="blog.main.controller" />
-	<context:component-scan base-package="blog.user" />
+	<context:component-scan base-package="blog.controller" />
+	
 	
 	
 	

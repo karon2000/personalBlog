@@ -22,32 +22,36 @@
 	<%@include file="/WEB-INF/views/header.jsp"%>
 
 	<div class="row">
-	<form action="${pageContext.request.contextPath}/user/login">
+	<form class="form-horizontal" action="${pageContext.request.contextPath}/user/login" method="post">
 		<div class="col s12 m4 offset-m4">
 			<div class="card teal lighten-5">
 				<div class="card-content black-text">
-					<span class="card-title">Login</span>
+					<span class="card-title">Sign in</span>
 					<div class="row">
 						<div class="input-field col s12">
-							<input id="id" type="text" class="validate"> 
+							<input id="id" type="text" class="validate" name = "id"> 
 							<label
-								class="active" for="id">ID</label>
+								for="id">ID</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input id="password" type="password" class="validate"> <label
+							<input id="password" type="password" class="validate" name="password"> <label
 								for="password">Password</label>
 						</div>
 					</div>
 
 				</div>
 				<div class="card-action">
-					<button class="btn waves-effect waves-light" type="submit" name="action">로그인 </button>
-					<a class="waves-effect waves-light btn">회원가입</a>
+					<button class="btn waves-effect waves-light" type="submit" name="action">Sign in</button>
+					<a class="waves-effect waves-light btn" href="${pageContext.request.contextPath}/">처음으로</a>
+					<a class="waves-effect waves-light btn" href="${pageContext.request.contextPath}/user/joinform">Sign up</a>
 				</div>
 			</div>
 		</div>
+									<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}"> <input type="hidden"
+								name="loginRedirect" value="${loginRedirect}" />
 		</form>
 	</div>
 </body>

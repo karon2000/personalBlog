@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userMapper">
+
+	<sql id="userColumn">
+		id, password, join_date
+	</sql>
+	<resultMap type="blog.vo.user.UserVo" id="userVo">
+		<id column="id" property="id" />
+		<result column="password" property="password" />
+		<result column="join_date" property="joinDate" />
+	</resultMap>
+
+
+
+	<select id="userSearchById" resultMap="userVo" parameterType="string">
+		SELECT
+		<include refid="userColumn" />
+		FROM USERTABLE
+		WHERE id = #{_parameter}
+	</select>
+
+
+
+	<insert id="userJoin" parameterType="blog.vo.user.UserVo">
+		insert into usertable(id, password, join_date) values
+		(#{id},#{password},to_char(sysdate,'YYYY-MM-DD'))
+	</insert>
+
+</mapper>

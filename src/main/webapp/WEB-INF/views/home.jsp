@@ -74,7 +74,7 @@ table tr td{
 						</table>
 					</div>
 					<div class="card-action" style="text-align: center">
-						<a href="#">Main Page로 이동</a> <a href="#">개발자의 Page로 이동</a> 
+						<a href="${pageContext.request.contextPath}/blog/">Main Page로 이동</a> <a href="${pageContext.request.contextPath}/blog/freeanz01">개발자의 Page로 이동</a> 
 					</div>
 				</div>
 			</div>

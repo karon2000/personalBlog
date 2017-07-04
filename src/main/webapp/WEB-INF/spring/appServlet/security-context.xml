@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+<context:component-scan base-package="blog.security"/>
+
+<security:http use-expressions="true" auto-config="true">
+ <!-- <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>	 -->
+	<!-- <security:intercept-url pattern="/member/main" access="isAuthenticated()"/> -->
+	
+	<security:form-login
+		login-page="/user/loginform"
+		login-processing-url="/user/login"
+		username-parameter="id"
+		password-parameter="password"
+		always-use-default-target="false"
+		authentication-success-handler-ref="customAuthenticationSuccessHandler"
+		authentication-failure-handler-ref="userAuthenticationFailureHandler"
+	/>
+	
+	<security:logout
+		invalidate-session="true"
+		delete-cookies="JSESSIONID"
+		logout-url="/user/logout"
+		logout-success-url="/"
+	 />
+	 
+	
+</security:http>
+
+<bean id="customAuthenticationSuccessHandler" class="blog.security.CustomAuthenticationSuccessHandler">
+    <property name="targetUrlParameter" value="loginRedirect" />
+    <property name="useReferer" value="false" />
+    <property name="defaultUrl" value="/" />
+</bean>
+
+<security:authentication-manager>
+	<security:authentication-provider ref="userAuthenticationProvider"/>
+</security:authentication-manager> 
+
+</beans>
