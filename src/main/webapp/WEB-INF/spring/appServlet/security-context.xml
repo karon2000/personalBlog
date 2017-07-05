@@ -27,7 +27,7 @@
 		invalidate-session="true"
 		delete-cookies="JSESSIONID"
 		logout-url="/user/logout"
-		logout-success-url="/"
+		logout-success-url="/blog"
 	 />
 	 
 	
@@ -36,7 +36,7 @@
 <bean id="customAuthenticationSuccessHandler" class="blog.security.CustomAuthenticationSuccessHandler">
     <property name="targetUrlParameter" value="loginRedirect" />
     <property name="useReferer" value="false" />
-    <property name="defaultUrl" value="/" />
+    <property name="defaultUrl" value="/blog" />
 </bean>
 
 <security:authentication-manager>

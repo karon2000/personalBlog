@@ -25,6 +25,6 @@ public class UserAuthenticationFailureHandler implements AuthenticationFailureHa
 			throws IOException, ServletException {
 		req.setAttribute("errorMessage", auth.getMessage());
 		//resp.sendRedirect("loginForm");
-		req.getRequestDispatcher("/WEB-INF/views/user/loginForm.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/user/loginform.jsp").forward(req, resp);
 	}
 }

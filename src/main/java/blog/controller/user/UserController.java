@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import blog.service.user.UserService;
@@ -32,10 +33,22 @@ public class UserController {
 		return mv;
 	}	
 	
-	@RequestMapping("join")
+	@RequestMapping("/join")
 	public String userJoin(HttpServletRequest request, UserVo userVo) throws Exception {
 		int result = userService.userJoin(userVo);
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/userSearchById")
+	@ResponseBody
+	public int userSearchById(String id) {
+		int result = 0;
+		if(userService.userSearchById(id) != null){
+			result = 1;
+		}
+		
+		return result;
+	}
+		
 }
 

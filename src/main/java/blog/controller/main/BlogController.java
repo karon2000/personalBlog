@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/blog")
 public class BlogController {
 	
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String main() {
 		return "blog/main";
 	}
 	
 	@RequestMapping("/{id}")
 	public String userBlog(@PathVariable String id) {
-		return null;
+		return "blog/personalmain";
 	}
 }
