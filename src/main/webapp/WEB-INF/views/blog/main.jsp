@@ -29,6 +29,7 @@
 <script>
 	$(document).ready(function() {
 		$('select').material_select();
+	
 	});
 </script>
 </head>
@@ -73,7 +74,8 @@
 						<p>개인 정보 영역</p>
 					</div>
 					<div class="card-action">
-						<a href="#">관리</a>
+						<a href="${pageContext.request.contextPath}/blog/<sec:authentication
+								property='principal.id' />/setting">관리</a>
 					</div>
 				</div>
 			</sec:authorize>

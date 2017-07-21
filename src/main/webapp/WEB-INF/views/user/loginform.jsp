@@ -16,7 +16,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Personal Blog Project</title>
-
+<script>
+		$(document).keydown(function(e){   
+	        if(e.target.nodeName != "INPUT" && e.target.nodeName != "TEXTAREA"){       
+	            if(e.keyCode === 8){   
+	            return false;
+	            }
+	        }
+	    });
+	 
+	    window.history.forward(0);
+	    </script>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/header.jsp"%>
