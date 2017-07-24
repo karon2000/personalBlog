@@ -40,7 +40,6 @@ public class BlogController {
 			{
 				//올바른 접근이라면
 				//현재 카테고리 목록을 가져온다.
-				System.out.println(id);
 				ModelAndView mv = new ModelAndView();
 				List<CategoryVo> categoryList = categoryService.selectAll(id);
 				mv.addObject("categoryList", categoryList);

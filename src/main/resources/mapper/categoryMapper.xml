@@ -14,6 +14,7 @@
 		SELECT *
 		FROM category
 		WHERE id = #{_parameter}
+		ORDER BY order_num asc
 	</select>
 
 </mapper>

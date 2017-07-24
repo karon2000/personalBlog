@@ -21,15 +21,46 @@
 
 <script>
 	$(document).ready(function() {
+		
+		
+		var select_category = 0;
+		
 		$("tr td").css("background-color","black");
+		
 		$("tr").click(function(){
+			select_category = $(this).find("input").val();
+			alert(select_category);
 			$("tr td").css("background-color","black");			
 			$(this).children().css("background-color","red");
 		})
-
+		$("i").click(function(){
+			var temp = $(this).text();
+			
+			if(temp == 'arrow_drop_up')
+			{
+				alert('위로');
+			}
+			else if (temp =='arrow_drop_down')
+			{
+				alert('아래로');				
+			}
+			else if (temp =='delete')
+			{
+				alert('삭제');				
+			}
+		})
 	});
 </script>
-
+<style>
+tr td{
+	border:1px white solid;
+	cursor:pointer;
+}
+.material-icons{
+	color:white;
+	cursor:pointer;
+}
+</style>
 
 </head>
 <body>
@@ -47,15 +78,17 @@
 							<c:forEach items="${categoryList}" var="category" varStatus="vs">
 							<tr>
 								<td>
+									<input type="hidden" value="${vs.count}" id="category_index">
 									${category.categoryName}
 								</td>
 							</tr>	
 							</c:forEach>
 						</table>	
-						</p>
 					</div>
 					<div class="card-action" style="text-align: right;">
-						<a href="#">더보기</a>
+						  <i class="material-icons">arrow_drop_up</i>  
+						  <i class="material-icons">arrow_drop_down</i>  
+						  <i class="material-icons">delete</i>
 					</div>
 				</div>
 
